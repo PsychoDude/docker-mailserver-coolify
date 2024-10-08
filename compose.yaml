@@ -1,7 +1,7 @@
 services:
     mailserver:
         image: 'ghcr.io/docker-mailserver/docker-mailserver:latest'
-        hostname: '${SERVICE_FQDN_MAILSERVER}'
+        hostname: '${SERVICE_URL_MAILSERVER}'
         ports:
             - '25:25'
             - '143:143'
@@ -19,6 +19,7 @@ services:
             - NET_ADMIN
         environment:
             - SERVICE_FQDN_MAILSERVER
+            - HOSTNAME=${SERVICE_URL_MAILSERVER}
             - ACCOUNT_PROVISIONER=FILE
             - AMAVIS_LOGLEVEL=0
             - CLAMAV_MESSAGE_SIZE_LIMIT=
@@ -119,7 +120,6 @@ services:
             - SASLAUTHD_LDAP_TLS_CACERT_FILE=
             - SASLAUTHD_LDAP_TLS_CHECK_PEER=
             - SASLAUTHD_MECHANISMS=
-            - SASLAUTHD_MECH_OPTIONS=
             - SA_KILL=10.0
             - SA_TAG=2.0
             - SA_TAG2=6.31
