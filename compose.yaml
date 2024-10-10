@@ -3,7 +3,7 @@ services:
         image: 'ghcr.io/docker-mailserver/docker-mailserver:latest'
         hostname: '${SERVICE_URL_MAILSERVER}'
         ports:
-            - '25:25'
+            - '0.0.0.0:25:25'
             - '143:143'
             - '465:465'
             - '587:587'
