@@ -93,7 +93,7 @@ services:
             - POSTGREY_DELAY=300
             - POSTGREY_MAX_AGE=35
             - POSTGREY_TEXT=Delayed by Postgrey
-            - POSTMASTER_ADDRESS=postmaster@example.com
+            - POSTMASTER_ADDRESS=${POSTMASTER_EMAIL:-postmaster@example.com}
             - POSTSCREEN_ACTION=enforce
             - RELAY_HOST=
             - RELAY_PASSWORD=
